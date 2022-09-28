@@ -21,7 +21,7 @@ function NewsList({ category }) {
 			try {
 				//axios로 API를 호출한다.
 				const response = await axios.get(
-					`https://newsapi.org/v2/top-headlines?country=kr${query}&apiKey=a5ee1fb9d67341ec941a37c89cfc3283`
+					`https://newsapi.org/v2/top-headlines?country=kr${query}&apiKey=0a8c4202385d4ec1bb93b7e277b3c51f`
 					//'https://newsapi.org/v2/top-headlines?country=kr&apiKey=a5ee1fb9d67341ec941a37c89cfc3283'
 				);
 				//articles에 데이터를 담는다.
