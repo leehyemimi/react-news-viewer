@@ -1,13 +1,18 @@
-import './App.css';
-import Categories from "./components/Categories";
 
+
+import { Route, Routes } from "react-router-dom";
+import Categories from "./components/Categories";
 import NewsList from "./components/NewsList";
+
 function App() {
 	return (
-		<div className="App">
+		<>
 			<Categories></Categories>
-			<NewsList></NewsList>
-		</div>
+			<Routes>
+				<Route index element={<NewsList />} />
+				<Route path="/:category" element={<NewsList />} />
+			</Routes>
+		</>
 	);
 }
 

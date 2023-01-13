@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import styled from 'styled-components';
 
 const categories = [
@@ -51,8 +52,17 @@ const Category = styled.div`
   padding-bottom: 0.25rem;
 
 	&:hover {
-			color: #495057;
-		}
+		color: #495057;
+	}
+
+	&.active {
+    font-weight: 600;
+    border-bottom: 2px solid #22b8cf;
+    color: #22b8cf;
+    &:hover {
+      color: #3bc9db;
+    }
+  }
 
 	& + & {
 			margin-left: 1rem;
@@ -60,10 +70,18 @@ const Category = styled.div`
 `;
 
 function Categories() {
+	const navigate = useNavigate();
+	const [category, setCategory] = useState('all');
 	return (
 		<CategoriesBlock>
 			{categories.map(c => (
-				<Category key={c.name}>{c.text}</Category>
+				<Category
+					key={c.name}
+					className={c.name === category ? "active" : ""}
+					onClick={() => { navigate('/' + c.name); setCategory(c.name) }}
+				>
+					{c.text}
+				</Category>
 			))}
 		</CategoriesBlock>
 	);
